@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verticalAxis: VerticalP2
   horizontalAxis: HorizontalP2
-  actionAction:
-    keyboardKey: 112
+  action:
+    keyboardKey: 305
     controllerButton: 370

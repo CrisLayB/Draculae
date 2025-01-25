@@ -12,5 +12,5 @@ public class InputConfig : ScriptableObject
 {
     public string verticalAxis;
     public string horizontalAxis;
-    public InputAction actionAction;    
+    public InputAction action;    
 }
