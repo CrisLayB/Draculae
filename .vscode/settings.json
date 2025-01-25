@@ -51,5 +51,25 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Draculae.sln"
+    "dotnet.defaultSolution": "Draculae.sln",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#56101e",
+        "activityBar.background": "#56101e",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#266b14",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#56101e",
+        "statusBar.background": "#2b080f",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#56101e",
+        "statusBarItem.remoteBackground": "#2b080f",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#2b080f",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#2b080f99",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#2b080f"
 }

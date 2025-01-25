@@ -297,8 +297,8 @@ InputManager:
     m_Name: HorizontalP2
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
+    negativeButton: left
+    positiveButton: right
     altNegativeButton: j
     altPositiveButton: l
     gravity: 3
@@ -313,8 +313,8 @@ InputManager:
     m_Name: VerticalP2
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
+    negativeButton: down
+    positiveButton: up
     altNegativeButton: k
     altPositiveButton: i
     gravity: 3
@@ -338,7 +338,7 @@ InputManager:
     sensitivity: 1
     snap: 0
     invert: 0
-    type: 0
+    type: 2
     axis: 0
     joyNum: 2
   - serializedVersion: 3
@@ -354,7 +354,7 @@ InputManager:
     sensitivity: 1
     snap: 0
     invert: 1
-    type: 0
+    type: 2
     axis: 1
     joyNum: 2
   m_UsePhysicalKeys: 1

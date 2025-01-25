@@ -6,24 +6,68 @@ public class PlayerAction : MonoBehaviour
 {
     [SerializeField] private float highDistance = 0.7f;
     [SerializeField] private float distance = 1.5f;
+    [SerializeField] private InputConfig playerInput;
+
+    private Coin _coinSelected;
+    private Holder _holder;
+    private Vector3 _positionFixed;
     
-    Vector3 positionFixed;
+    private void Start() 
+    {
+        _holder = GetComponent<Holder>();
+    }
+    
+    private void Update() 
+    {
+        HandleInputs();
+    }
+
+    private void HandleInputs()
+    {
+        if(Input.GetKeyDown(playerInput.action.keyboardKey) || Input.GetKeyDown(playerInput.action.controllerButton))
+        {
+            ActionToDoWithTheCoin();
+        }
+    }
+
+    private void ActionToDoWithTheCoin()
+    {
+        if(_holder.HasHeldObject()) // Si tiene la moneda
+        {
+            _holder.RemoveHeldObject();
+            return;
+        }
+
+        if(_coinSelected == null) return;
+
+        if(!_holder.HasHeldObject()) // Si no tiene la moneda
+        {
+            Coin coinToSet = _coinSelected;
+            _coinSelected?.OriginalMaterial();
+            _coinSelected = null;
+            _holder.HeldObject = coinToSet;
+        }
+    }
     
     private void FixedUpdate() 
     {
-        positionFixed = new Vector3(transform.position.x, transform.position.y - highDistance, transform.position.z);        
+        _positionFixed = new Vector3(transform.position.x, transform.position.y - highDistance, transform.position.z);        
         DetectCoin();
     }
 
     private void DetectCoin()
     {
-        if(Physics.Raycast(positionFixed, transform.TransformDirection (Vector3.forward), out RaycastHit hitInfo, distance))
+        if(_holder.HasHeldObject()) return;
+        
+        if(Physics.Raycast(_positionFixed, transform.TransformDirection (Vector3.forward), out RaycastHit hitInfo, distance))
         {
             CoinActionToDo(hitInfo);
         }
         else
         {
-            Debug.DrawRay(positionFixed, transform.TransformDirection(Vector3.forward) * distance, Color.green);
+            _coinSelected?.OriginalMaterial();
+            _coinSelected = null;
+            Debug.DrawRay(_positionFixed, transform.TransformDirection(Vector3.forward) * distance, Color.green);
         }
     }
 
@@ -33,12 +77,15 @@ public class PlayerAction : MonoBehaviour
 
         if(coin)
         {
-            // Select Coin
-            Debug.DrawRay(positionFixed, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
+            Debug.DrawRay(_positionFixed, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
+            _coinSelected?.OriginalMaterial();
+            _coinSelected = coin;
+            _coinSelected?.Highlight();
         }
         else
         {
-            // Deselect Coin
+            _coinSelected?.OriginalMaterial();
+            _coinSelected = null;
         }
     }
 }
