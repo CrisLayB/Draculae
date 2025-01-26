@@ -10,8 +10,12 @@ public class Bubble : MonoBehaviour
         if(enter.gameObject.tag == "Player" | enter.gameObject.tag == "Coin") 
         {
             GameObject.Find("BubbleAudio").GetComponent<AudioSource>().Play();
-            Vector3 velocity = GetComponent<Rigidbody>().velocity;
-            GameObject.Find("Fire Spawner").GetComponent<FireSpawner>().SpawnFireball(velocity);
+            GameObject fire_spawner = GameObject.Find("Fire Spawner");
+            if (fire_spawner != null) 
+            {
+                Vector3 velocity = GetComponent<Rigidbody>().velocity;
+                fire_spawner.GetComponent<FireSpawner>().SpawnFireball(velocity);
+            }
             Destroy(gameObject);
         }
     }
