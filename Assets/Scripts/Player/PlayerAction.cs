@@ -11,10 +11,12 @@ public class PlayerAction : MonoBehaviour
     private Coin _coinSelected;
     private Holder _holder;
     private Vector3 _positionFixed;
+    private PlayerAnimations _animations;
     
     private void Start() 
     {
         _holder = GetComponent<Holder>();
+        _animations = GetComponent<PlayerAnimations>();
     }
     
     private void Update() 
@@ -35,6 +37,7 @@ public class PlayerAction : MonoBehaviour
         if(_holder.HasHeldObject()) // Si tiene la moneda
         {
             _holder.RemoveHeldObject();
+            _animations.ThrowCoin();
             return;
         }
 
@@ -46,6 +49,7 @@ public class PlayerAction : MonoBehaviour
             _coinSelected?.OriginalMaterial();
             _coinSelected = null;
             _holder.HeldObject = coinToSet;
+            _animations.GetCoin();
         }
     }
     
