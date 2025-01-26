@@ -351,11 +351,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 273549622058268841, guid: 430231a541c26ce459c7c1b9581a3e72, type: 3}
       propertyPath: minutes
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 273549622058268841, guid: 430231a541c26ce459c7c1b9581a3e72, type: 3}
       propertyPath: seconds
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 273549622058268841, guid: 430231a541c26ce459c7c1b9581a3e72, type: 3}
       propertyPath: _textTime
@@ -2827,9 +2827,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1279794634}
     - target: {fileID: 4787533339500408013, guid: 9b29502b8eb6ef34db71276a958978fd, type: 3}
+      propertyPath: _SceneHandlerManager
+      value: 
+      objectReference: {fileID: 456698642}
+    - target: {fileID: 4787533339500408013, guid: 9b29502b8eb6ef34db71276a958978fd, type: 3}
+      propertyPath: _decideWinnerCutscene.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787533339500408013, guid: 9b29502b8eb6ef34db71276a958978fd, type: 3}
+      propertyPath: _decideWinnerCutscene.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787533339500408013, guid: 9b29502b8eb6ef34db71276a958978fd, type: 3}
+      propertyPath: _decideWinnerCutscene.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 456698642}
+    - target: {fileID: 4787533339500408013, guid: 9b29502b8eb6ef34db71276a958978fd, type: 3}
       propertyPath: _eventToPressContinue.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 456698642}
+    - target: {fileID: 4787533339500408013, guid: 9b29502b8eb6ef34db71276a958978fd, type: 3}
+      propertyPath: _decideWinnerCutscene.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787533339500408013, guid: 9b29502b8eb6ef34db71276a958978fd, type: 3}
+      propertyPath: _decideWinnerCutscene.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CutsceneWinner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787533339500408013, guid: 9b29502b8eb6ef34db71276a958978fd, type: 3}
+      propertyPath: _decideWinnerCutscene.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScenesHandlerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787533339500408013, guid: 9b29502b8eb6ef34db71276a958978fd, type: 3}
+      propertyPath: _decideWinnerCutscene.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4917637778104958451, guid: 9b29502b8eb6ef34db71276a958978fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

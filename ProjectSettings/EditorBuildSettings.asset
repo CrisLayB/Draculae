@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 1587e6c51187d3b4ebd5c67f32168fa8
+  - enabled: 1
+    path: Assets/Scenes/CinematicaFinalPlayer1Wins.unity
+    guid: 7e905f4b85dfcf5469117af6c638df13
+  - enabled: 1
+    path: Assets/Scenes/CinematicaFinalPlayer2Wins.unity
+    guid: 7281b4e67464217429ebd76029e98c33
   m_configObjects: {}

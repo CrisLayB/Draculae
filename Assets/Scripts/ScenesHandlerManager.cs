@@ -15,6 +15,24 @@ public class ScenesHandlerManager : MonoBehaviour
         SceneManager.LoadScene("MainGame");
     }
 
+    public void CutsceneWinner(int result)
+    {
+        
+        if(result == 1)
+        {
+            SceneManager.LoadScene("CinematicaFinalPlayer1Wins");
+            return;
+        }
+
+        if(result == 2)
+        {
+            SceneManager.LoadScene("CinematicaFinalPlayer2Wins");
+            return;
+        }
+        
+        SceneManager.LoadScene("MainGame");
+    }
+
     public void QuitGame()
     {
         #if UNITY_EDITOR

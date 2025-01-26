@@ -7,8 +7,9 @@ using UnityEngine.Events;
 public class ResultsUI : MonoBehaviour
 {
     [SerializeField] private float cutsceneTime = 5f;
-    [SerializeField] private InputConfig playerInput;
-    [SerializeField] private UnityEvent _eventToPressContinue;
+    [SerializeField] private InputConfig playerInput;    
+    // [SerializeField] private UnityEvent<int> _decideWinnerCutscene;
+    [SerializeField] private ScenesHandlerManager _SceneHandlerManager;
 
     [SerializeField] private Counter _counterPlayer1, _counterPlayer2;
     [SerializeField] private TMP_Text _winnerPlayer;
@@ -41,7 +42,11 @@ public class ResultsUI : MonoBehaviour
             Input.GetKeyDown(KeyCode.Return)
         )
         {            
-            _eventToPressContinue?.Invoke();
+            int pointsP1 = _counterPlayer1.CounCounter;
+            int pointsP2 = _counterPlayer2.GetCoinCount();
+            int winner = pointsP1 < pointsP2 ? 1 : pointsP2 < pointsP1 ? 2 : 0;            
+            // _decideWinnerCutscene.Invoke(2);
+            _SceneHandlerManager.CutsceneWinner(winner);
         }
     }
 
