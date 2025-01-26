@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private bool _startToWalk = false;
     [SerializeField] private InputConfig playerInput;
+    [SerializeField] private Color burnedColor = Color.black;
+    private SkinnedMeshRenderer[] _meshes;
+    private Material[] _originalMaterialMeshes;
     private CharacterController _characterController;
     private PlayerAnimations _animations;
     private bool _inmunity = false;
@@ -24,6 +27,15 @@ public class PlayerMovement : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _animations = GetComponent<PlayerAnimations>();
+        _meshes = GetComponentsInChildren<SkinnedMeshRenderer>();
+
+        if(_meshes == null) return;
+
+        _originalMaterialMeshes = new Material[_meshes.Length];
+        for (int i = 0; i < _meshes.Length; i++)
+        {
+            _originalMaterialMeshes[i] = _meshes[i].material;
+        }
     }
 
     void Update()
@@ -55,14 +67,32 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Burned()
     {
+        // TODO: Set burnedColor color to the _meshes
+        foreach (SkinnedMeshRenderer mesh in _meshes)
+        {
+            Material burnedMaterial = new Material(mesh.material)
+            {
+                color = burnedColor
+            };
+            mesh.material = burnedMaterial;
+        }
+        
         _inmunity = true;
-        GetComponent<PlayerAnimations>().Burned();
+        _animations.Burned();
         StopToWalk();
         yield return new WaitForSeconds(3);
+
+        // TODO: Set originalMaterialMeshes into _meshes
+        for (int i = 0; i < _meshes.Length; i++)
+        {
+            _meshes[i].material = _originalMaterialMeshes[i];
+        }
+
         StartToWalk();
         // Call inmunity animation
         yield return new WaitForSeconds(1.5f);
         _inmunity = false;
+        
     }
 
 }
