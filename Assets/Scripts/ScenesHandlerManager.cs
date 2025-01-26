@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ScenesHandlerManager : MonoBehaviour
 {
+    public void IntroductionCutScene()
+    {
+        SceneManager.LoadScene("Cinematicas");
+    }
+    
     public void ResetMainGame()
     {   
         SceneManager.LoadScene("MainGame");

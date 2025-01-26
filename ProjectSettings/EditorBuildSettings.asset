@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/InitialCredits.unity
     guid: 65e2aed525f0a354195be20a87720f8f
   - enabled: 1
+    path: Assets/Scenes/Cinematicas.unity
+    guid: 9d5f6cec6bbea074292e3e22d496b43c
+  - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 1587e6c51187d3b4ebd5c67f32168fa8
   m_configObjects: {}
