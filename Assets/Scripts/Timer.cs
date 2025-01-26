@@ -34,11 +34,6 @@ public class Timer : MonoBehaviour
         get { return _state; }
     }
 
-    private void Start() 
-    {
-        StartTimer();
-    }
-
     // --> Métodos
     public void StartTimer()
     {
@@ -48,7 +43,7 @@ public class Timer : MonoBehaviour
         InvokeRepeating("UpdateTimer", 0f, 1f);
     }
 
-    public void StopTimer()
+    private void StopTimer()
     {
         CancelInvoke();
     }

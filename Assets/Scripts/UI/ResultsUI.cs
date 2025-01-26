@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class ResultsUI : MonoBehaviour
 {
     [SerializeField] private float cutsceneTime = 5f;
     [SerializeField] private InputConfig playerInput;
+    [SerializeField] private UnityEvent _eventToPressContinue;
     private List<GameObject> _childObjects = new List<GameObject>();
     private bool _allowContinue = false;
 
@@ -31,9 +32,8 @@ public class ResultsUI : MonoBehaviour
             Input.GetKeyDown(playerInput.action.controllerButton) ||
             Input.GetKeyDown(KeyCode.Return)
         )
-        {
-            // Reset Game
-            SceneManager.LoadScene("MainGame");
+        {            
+            _eventToPressContinue?.Invoke();
         }
     }
 
