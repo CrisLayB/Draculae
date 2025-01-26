@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private InputConfig playerInput;
     private CharacterController _characterController;
+    private PlayerAnimations _animations;
 
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
+        _animations = GetComponent<PlayerAnimations>();
     }
 
     void Update()
@@ -24,5 +26,8 @@ public class PlayerMovement : MonoBehaviour
         if(movement.magnitude != 0) transform.forward = movement;
              
         _characterController.SimpleMove(movement);
+
+         float movementMagnitude = new Vector2(horizontal, vertical).magnitude;    
+        _animations.WalkingAnimation(movementMagnitude);
     }
 }
