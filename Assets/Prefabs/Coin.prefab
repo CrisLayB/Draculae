@@ -98,6 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c4275fac4faff489a462de0c74292f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalMaterial: {fileID: 2100000, guid: fa1472a332e41a84983e717a13a5722d, type: 2}
+  highlightMaterial: {fileID: 2100000, guid: d527567ae59eea3409535e5d243b6748, type: 2}
+  throwedCoinVelocity: 0
 --- !u!136 &5109499478309385480
 CapsuleCollider:
   m_ObjectHideFlags: 0
