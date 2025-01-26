@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputConfig playerInput;
     private CharacterController _characterController;
     private PlayerAnimations _animations;
+    private bool _inmunity = false;
 
     public void StartToWalk() => _startToWalk = true;
 
@@ -43,4 +44,25 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // TODO: Create a OnTriggerEvent of OnCollisionEnter and call Burned and StopToWalk in a Coroutine
+    void OnTriggerEnter(Collider enter)
+    {
+        IEnumerator coroutine = Burned();
+        if (enter.gameObject.tag == "Fireball" & !_inmunity)
+        {
+            StartCoroutine(coroutine);
+        }
+    }
+
+    private IEnumerator Burned()
+    {
+        _inmunity = true;
+        GetComponent<PlayerAnimations>().Burned();
+        StopToWalk();
+        yield return new WaitForSeconds(3);
+        StartToWalk();
+        // Call inmunity animation
+        yield return new WaitForSeconds(1.5f);
+        _inmunity = false;
+    }
+
 }
