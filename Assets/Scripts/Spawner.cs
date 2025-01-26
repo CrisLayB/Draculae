@@ -22,8 +22,14 @@ public class Spawner : MonoBehaviour
 
         foreach (Transform child in transform) {
             GameObject coin = Instantiate(_coin_prefab, child.position, child.rotation);
-            _coin_list.Add(coin);
         }
+
+        InvokeRepeating("SpawnNewCoins", 3.0f, 3.0f);
+    }
+
+    private void SpawnNewCoins() {
+        int random_position = UnityEngine.Random.Range(0, _coin_positions.Length);
+        Instantiate(_coin_prefab, _coin_positions[random_position], Quaternion.identity);
     }
 
     // Update is called once per frame
