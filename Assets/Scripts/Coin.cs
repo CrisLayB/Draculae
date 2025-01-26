@@ -8,13 +8,14 @@ public class Coin : MonoBehaviour
 {
     [SerializeField] private Material originalMaterial;
     [SerializeField] private Material highlightMaterial;
-    [SerializeField] private MeshRenderer mesh;
     [SerializeField] private float throwedCoinVelocity;
     private Rigidbody _rigidbody;
+    private MeshRenderer _mesh;
 
     private void Start() 
     {
         _rigidbody = gameObject.GetComponent<Rigidbody>();
+        _mesh = gameObject.GetComponentInChildren<MeshRenderer>();
     }
 
     private void Update() 
@@ -28,12 +29,12 @@ public class Coin : MonoBehaviour
 
     public void Highlight()
     {
-        mesh.material = highlightMaterial;
+        _mesh.material = highlightMaterial;
     }
 
     public void OriginalMaterial()
     {
-        mesh.material = originalMaterial;
+        _mesh.material = originalMaterial;
     }
 
     public void ThrowCoin(Vector3 positionForward)
