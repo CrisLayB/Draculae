@@ -351,11 +351,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 273549622058268841, guid: 430231a541c26ce459c7c1b9581a3e72, type: 3}
       propertyPath: minutes
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 273549622058268841, guid: 430231a541c26ce459c7c1b9581a3e72, type: 3}
       propertyPath: seconds
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 273549622058268841, guid: 430231a541c26ce459c7c1b9581a3e72, type: 3}
       propertyPath: _textTime
