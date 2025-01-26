@@ -6,6 +6,7 @@ using UnityEngine;
 public class Counter : MonoBehaviour
 {
     [SerializeField] private int coin_counter;
+        
     void OnTriggerEnter(Collider enter) 
     {
         if (enter.gameObject.tag == "Coin")
@@ -18,8 +19,13 @@ public class Counter : MonoBehaviour
             coin_counter--;
     }
 
-    int GetCoinCount() 
+    public int GetCoinCount() 
     {
         return coin_counter;
+    }
+
+    public int CounCounter
+    {
+        get { return coin_counter; }        
     }
 }

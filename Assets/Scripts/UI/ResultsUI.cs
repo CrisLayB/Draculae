@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.Events;
 
 public class ResultsUI : MonoBehaviour
@@ -8,6 +9,11 @@ public class ResultsUI : MonoBehaviour
     [SerializeField] private float cutsceneTime = 5f;
     [SerializeField] private InputConfig playerInput;
     [SerializeField] private UnityEvent _eventToPressContinue;
+
+    [SerializeField] private Counter _counterPlayer1, _counterPlayer2;
+    [SerializeField] private TMP_Text _winnerPlayer;
+    [SerializeField] private TMP_Text _textCounterPlayer1, _textCounterPlayer2;
+    
     private List<GameObject> _childObjects = new List<GameObject>();
     private bool _allowContinue = false;
 
@@ -50,11 +56,17 @@ public class ResultsUI : MonoBehaviour
         foreach (GameObject child in _childObjects)
         {
             child.SetActive(true);
-        }
+        }        
 
         _allowContinue = true;
 
-        // TODO: Set Results of the game
+        int pointsP1 = _counterPlayer1.CounCounter;
+        int pointsP2 = _counterPlayer2.GetCoinCount();
+
+        _winnerPlayer.text = pointsP1 > pointsP2? "Player 1 wins!" : pointsP2 > pointsP1? "Player 2 wins!" : "It's a tie!";
+        
+        _textCounterPlayer1.text = $"{pointsP1}";
+        _textCounterPlayer2.text = $"{ pointsP2}";
     }
 
     private void GetChildObjectsRecursive(GameObject parent)

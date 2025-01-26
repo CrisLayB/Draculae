@@ -5,6 +5,7 @@ using UnityEngine;
 public class BubbleSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _bubble_prefab;
+    [SerializeField] private float _bubbleRange = -3.5f;
 
     public void StartingSpawnBubbles()
     {
@@ -22,6 +23,6 @@ public class BubbleSpawner : MonoBehaviour
         GameObject bubble = Instantiate(_bubble_prefab, transform.position, Quaternion.identity);
         Rigidbody rb_bubble = bubble.GetComponent<Rigidbody>();
 
-        rb_bubble.AddForce(new Vector3(x, 0, -3.5f), ForceMode.VelocityChange);
+        rb_bubble.AddForce(new Vector3(x, 0, _bubbleRange), ForceMode.VelocityChange);
     }
 }
