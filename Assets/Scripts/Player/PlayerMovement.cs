@@ -6,9 +6,18 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+    [SerializeField] private bool _startToWalk = false;
     [SerializeField] private InputConfig playerInput;
     private CharacterController _characterController;
     private PlayerAnimations _animations;
+
+    public void StartToWalk() => _startToWalk = true;
+
+    public void StopToWalk() 
+    {
+        _startToWalk = false;
+        _animations.WalkingAnimation(0);
+    }
 
     void Start()
     {
@@ -18,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {        
+        if(!_startToWalk) return;
+        
         float horizontal = Input.GetAxis(playerInput.horizontalAxis);
         float vertical = Input.GetAxis(playerInput.verticalAxis);
         
@@ -30,4 +41,6 @@ public class PlayerMovement : MonoBehaviour
          float movementMagnitude = new Vector2(horizontal, vertical).magnitude;    
         _animations.WalkingAnimation(movementMagnitude);
     }
+
+    // TODO: Create a OnTriggerEvent of OnCollisionEnter and call Burned and StopToWalk in a Coroutine
 }

@@ -25,4 +25,9 @@ public class PlayerAnimations : MonoBehaviour
     {
         animator.SetInteger("typeDance", Random.Range(1, 3));
     }
+
+    public void Burned()
+    {
+        animator.SetTrigger("burned");
+    }
 }
