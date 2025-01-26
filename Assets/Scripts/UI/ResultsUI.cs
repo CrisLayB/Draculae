@@ -19,6 +19,8 @@ public class ResultsUI : MonoBehaviour
 
     private void Start()
     {    
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;        
         GetChildObjectsRecursive(this.gameObject);
         
         for (int i = 0; i < _childObjects.Count; i++)
