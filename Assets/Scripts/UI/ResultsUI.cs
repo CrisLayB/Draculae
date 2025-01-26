@@ -65,7 +65,7 @@ public class ResultsUI : MonoBehaviour
         int pointsP1 = _counterPlayer1.CounCounter;
         int pointsP2 = _counterPlayer2.GetCoinCount();
 
-        _winnerPlayer.text = pointsP1 > pointsP2? "Player 1 wins!" : pointsP2 > pointsP1? "Player 2 wins!" : "It's a tie!";
+        _winnerPlayer.text = pointsP1 < pointsP2? "Player 1 wins!" : pointsP2 < pointsP1? "Player 2 wins!" : "It's a tie!";
         
         _textCounterPlayer1.text = $"{pointsP1}";
         _textCounterPlayer2.text = $"{ pointsP2}";

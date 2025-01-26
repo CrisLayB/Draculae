@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Material[] _originalMaterialMeshes;
     private CharacterController _characterController;
     private PlayerAnimations _animations;
+    private AudioSource _burningSound;
     private bool _inmunity = false;
 
     public void StartToWalk() => _startToWalk = true;
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _animations = GetComponent<PlayerAnimations>();
         _meshes = GetComponentsInChildren<SkinnedMeshRenderer>();
+        _burningSound = GetComponent<AudioSource>();
 
         if(_meshes == null) return;
 
@@ -80,6 +82,9 @@ public class PlayerMovement : MonoBehaviour
         _inmunity = true;
         _animations.Burned();
         StopToWalk();
+
+        _burningSound?.Play();
+        
         yield return new WaitForSeconds(3);
 
         // TODO: Set originalMaterialMeshes into _meshes
