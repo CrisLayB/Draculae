@@ -18,10 +18,10 @@ public class BubbleSpawner : MonoBehaviour
 
     private void SpawnNewBubbles()
     {
-        float x = Random.Range(-1, 1);
+        float x = Random.Range(-1.5f, 1.5f);
         GameObject bubble = Instantiate(_bubble_prefab, transform.position, Quaternion.identity);
         Rigidbody rb_bubble = bubble.GetComponent<Rigidbody>();
 
-        rb_bubble.AddForce(new Vector3(x, 0, -1.5f), ForceMode.VelocityChange);
+        rb_bubble.AddForce(new Vector3(x, 0, -3.5f), ForceMode.VelocityChange);
     }
 }
